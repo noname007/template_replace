@@ -8,3 +8,5 @@ themes/classic/views/
 .project
 .settings
 *txt
+/php_errors.log
+.idea
