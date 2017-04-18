@@ -39,12 +39,12 @@ $config =  require $opt[$config_var_key];
 
 $res = file_get_contents($opt[$template_key]) ;
 
-$output =  preg_replace_callback('/\${\s*([0-9a-zA-Z]+)\s*}/',function ($matchs)use($config){
-    var_dump($matchs,$config);
+$output =  preg_replace_callback('/\${\s*([0-9a-zA-Z._]+)\s*}/',function ($matchs)use($config){
+//    var_dump($matchs,$config);
     if (isset($config[$matchs[1]])){
         return $config[$matchs[1]];
     } else {
-        echo $matchs[1],'not found in config file';
+        echo ' [Warning] config "',$matchs[1],'" not found in config file',PHP_EOL;
         return '';
     };
 },$res);
@@ -54,7 +54,7 @@ $file_name = isset($opt[$output_file])?$opt[$output_file]: $opt[$template_key].$
 
 if(is_file($file_name))
 {
-    echo 'override the file ',$file_name;
+    echo " [Warning] ",'override the file "',$file_name,'"';
 }
 
 file_put_contents($file_name, $output);

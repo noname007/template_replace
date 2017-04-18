@@ -4,7 +4,7 @@ $str =  <<<HERE_DOC
 	faldjfaldsaffaldjf非常好${money}aldsaf
 	faldjfalds非常好${name}a非常好ffaldjfaldsaf
 	faldjfaldsaf
-	${ quyu }
+	${ quyu.beijing }
 非常好
 faldjfaldsaf
 HERE_DOC;
