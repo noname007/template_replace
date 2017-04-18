@@ -15,10 +15,16 @@ ${ 1n12A }
 具体的可以看 t.php 和 1.yml 中的使用。
 
 ## 用法样例:
+- --template 必选； 模板，可以为任意文本文件
+- --var 必选 ； 配置，格式固定，参考c.php
+- --output 可选； 替换后的输出文件名
 
 > php convert.php  --template 1.yml  --var c.php
 
 > php convert.php  --template t.php --var c.php
+
+> php convert.php  --template t.php  --var c.php --output output.php
+
 
 ##  依赖:
 
