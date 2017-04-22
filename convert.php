@@ -56,7 +56,7 @@ $file_name = isset($opt[$output_file])?$opt[$output_file]: $opt[$template_key].$
 
 if(is_file($file_name))
 {
-    echo " [Warning] ",'override the file "',$file_name,'"';
+    echo " [Warning] ",'override the file "',$file_name,'"',PHP_EOL;
 }
 
 file_put_contents($file_name, $output);
