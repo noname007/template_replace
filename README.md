@@ -19,12 +19,17 @@ ${ 1n12A }
 - --var 必选 ； 配置，格式固定，参考c.php
 - --output 可选； 替换后的输出文件名
 
+
 > php convert.php  --template 1.yml  --var c.php
 
 > php convert.php  --template t.php --var c.php
 
 > php convert.php  --template t.php  --var c.php --output output.php
 
+
+当配置是json格式的的时候:(其实 convert_json.php 将json 转换成php 数组)
+
+> php convert.php  --template 1.yml --var json_type.php --json config.json
 
 ##  依赖:
 

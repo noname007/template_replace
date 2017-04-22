@@ -3,12 +3,14 @@
 const template  = 'template:';
 const CONFIG_VAR = 'var:';
 const OUTPUT_FILE = 'output:';
+const JSON_FILE = 'json:';
 
+$json_file = rtrim(JSON_FILE,':');
 $template_key = rtrim(template,':');
 $config_var_key = rtrim(CONFIG_VAR,':');
 $output_file = rtrim(OUTPUT_FILE,':');
 
-$opt = getopt('',[template,CONFIG_VAR,OUTPUT_FILE]);
+$opt = getopt('',[template,CONFIG_VAR,OUTPUT_FILE,JSON_FILE]);
 // var_dump($a);
 
 // var_dump($opt);
@@ -19,7 +21,7 @@ $opt = getopt('',[template,CONFIG_VAR,OUTPUT_FILE]);
 
 if(!isset($opt[$template_key],$opt[$config_var_key]))
 {
-	echo  'php convert.php  --template 1.yml --var c.php [--output output.yml]';
+	echo  'php convert.php  --template 1.yml --var c.php [--output output.yml]',PHP_EOL;
 	exit(1);
 }
 
