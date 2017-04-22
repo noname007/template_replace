@@ -3,14 +3,14 @@
 const template  = 'template:';
 const CONFIG_VAR = 'var:';
 const OUTPUT_FILE = 'output:';
-const JSON_FILE = 'json:';
+const CONFIG_TYPE = 'type:';
 
-$json_file = rtrim(JSON_FILE,':');
+$config_type = rtrim(CONFIG_TYPE,':');
 $template_key = rtrim(template,':');
 $config_var_key = rtrim(CONFIG_VAR,':');
 $output_file = rtrim(OUTPUT_FILE,':');
 
-$opt = getopt('',[template,CONFIG_VAR,OUTPUT_FILE,JSON_FILE]);
+$opt = getopt('',[template,CONFIG_VAR,OUTPUT_FILE,CONFIG_TYPE]);
 // var_dump($a);
 
 // var_dump($opt);
@@ -37,7 +37,19 @@ if(!is_file($opt[$template_key]))
     exit(1);
 }
 
-$config =  require $opt[$config_var_key];
+if(isset($opt[$config_type])){
+    switch($opt[$config_type])
+    {
+        case 'json':
+            $config = convert_json($opt[$config_var_key]);
+            break;
+        default:
+            exit(1);
+            break;
+    }
+}else{
+    $config =  require $opt[$config_var_key];
+}
 
 $res = file_get_contents($opt[$template_key]) ;
 
@@ -60,3 +72,10 @@ if(is_file($file_name))
 }
 
 file_put_contents($file_name, $output);
+
+
+function convert_json($json_file){
+        $arr  = json_decode(file_get_contents($json_file),1);
+        return $arr;
+}
+        

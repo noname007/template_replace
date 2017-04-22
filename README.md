@@ -29,7 +29,7 @@ ${ 1n12A }
 
 当配置是json格式的的时候:(其实 convert_json.php 将json 转换成php 数组)
 
-> php convert.php  --template 1.yml --var json_type.php --json config.json
+> php convert.php  --template 1.yml --var config.json --type json
 
 ##  依赖:
 
