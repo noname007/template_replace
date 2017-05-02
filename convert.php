@@ -1,3 +1,4 @@
+#! /bin/env php
 <?php
 //
 const template  = 'template:';
