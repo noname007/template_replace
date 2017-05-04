@@ -1,4 +1,7 @@
 # 模板变量替换
+
+[![Build Status](https://travis-ci.org/noname007/template_replace.svg?branch=master)](https://travis-ci.org/noname007/template_replace)
+
 ## 简要说明
 能识别的变量格式为（正则表达式描述）：
 
